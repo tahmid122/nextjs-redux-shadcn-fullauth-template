@@ -16,7 +16,7 @@ export type T_Login = {
 
 export type TQueryParam = {
   name: string;
-  value: boolean | React.Key;
+  value: string | null | number | undefined;
 };
 export type TError = {
   data: {
@@ -31,7 +31,7 @@ export type TMeta = {
   limit: number;
   page: number;
   total: number;
-  totalPage: number;
+  totalPages: number;
 };
 
 export type TResponse<T> = {
@@ -47,52 +47,3 @@ export type T_ApiResponse<T> = {
   message: string;
   data: T;
 };
-
-export type T_ApiResponseMeta = {
-  totalCount: number;
-  totalPages: number;
-  page: number;
-  limit: number;
-};
-export type T_ApiResponseForPagination<T> = {
-  success: boolean;
-  message: string;
-  data: {
-    meta: T_ApiResponseMeta;
-    result: T;
-  };
-};
-
-export type T_ErrorSource = {
-  path: string;
-  message: string;
-};
-export interface RtkErrorWrapper {
-  status: number;
-  data: ApiErrorResponse;
-}
-export interface ApiErrorResponse {
-  success: boolean;
-  statusCode: number;
-  message: string;
-  requestPath: string;
-  requestMethod: string;
-  requestBody: RequestBody;
-  errorDetails: ErrorDetails;
-}
-export interface ErrorDetails {
-  stack?: string;
-}
-export interface RequestBody {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any; // Generic for other forms
-}
-export interface I_ErrorResponse {
-  data: {
-    success: boolean;
-    message: string;
-    stack?: string;
-    errorSources: T_ErrorSource[];
-  };
-  status: number;
-}

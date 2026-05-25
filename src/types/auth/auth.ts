@@ -1,5 +1,3 @@
-import { Role } from "./common";
-
 export interface TSignUp {
   fullName: string;
   email: string;

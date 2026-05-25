@@ -8,7 +8,7 @@ const ContainerWrapper = ({
   className?: string;
 }) => {
   return (
-    <div className={`max-w-360 mx-auto  px-4 lg:px-15 2xl:px-30 ${className}`}>
+    <div className={`container mx-auto px-5 lg:px-0 py-5 ${className}`}>
       {children}
     </div>
   );
